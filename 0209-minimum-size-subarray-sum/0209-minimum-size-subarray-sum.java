@@ -1,25 +1,37 @@
 class Solution {
-    public int minSubArrayLen(int target, int[] a) {
+    public int minSubArrayLen(int target, int[] nums) {
+        int l=1, r=1;
+        int n = nums.length;
 
-        int l = 0, r = 0, minLen = Integer.MAX_VALUE, sum = a[r], n = a.length;
+        int[] prefix = new int[n+1];
+        prefix[0] = 0;
 
-        while (r < n) {
+        for(int i=0; i<n; i++) {
+            prefix[i+1] = prefix[i] + nums[i];
+        }
 
-            if (sum >= target) {
-                minLen = Math.min(minLen, r - l + 1);
-                sum -= a[l];
-                l++;
-            } else {
+        System.out.println(Arrays.toString(prefix));
+
+        
+
+        int min = Integer.MAX_VALUE;
+
+        while(r<n+1) {
+
+            int sum = prefix[r] - prefix[l-1];
+
+            if(prefix[r] - prefix[l-1] < target) {
                 r++;
-                if (r < n)
-                    sum += a[r];
+            }
+
+            else {
+                System.out.println(sum + ", pos: r:" + r + ", l:" + l);
+                min = Math.min(min, r-l+1);
+                l++;
             }
         }
 
-        if(minLen == Integer.MAX_VALUE)
-            minLen = 0;
-
-        return minLen;
+        return min == Integer.MAX_VALUE ? 0 : min;
         
     }
 }
