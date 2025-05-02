@@ -3,7 +3,7 @@ class Solution {
 
         int l=0, r=0;
         int count = 0;
-        int max = Integer.MIN_VALUE;
+        int max = 0;
 
         while(r<nums.length) {
             if(nums[r] == 1) {
