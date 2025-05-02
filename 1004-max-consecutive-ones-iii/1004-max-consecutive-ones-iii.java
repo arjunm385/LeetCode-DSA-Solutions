@@ -4,9 +4,6 @@ class Solution {
         int l=0, r=0;
         int count = 0;
         int max = Integer.MIN_VALUE;
-        int flip = 0;
-
-        int last = 0;
 
         while(r<nums.length) {
             if(nums[r] == 1) {
@@ -14,8 +11,8 @@ class Solution {
                 r++;
             }
 
-            else if(nums[r] == 0 && flip<k) {
-                flip++;
+            else if(nums[r] == 0 && k>0) {
+                k--;
                 count++;
                 r++;
             }
