@@ -27,12 +27,15 @@ class Solution {
 
         for(int i=k; i<s.length(); i++){
             
-            if(map.containsKey(s.charAt(i))) {
-                map.put(s.charAt(i), map.get(s.charAt(i)) - 1);
+            char curr = s2.charAt(i);
+            char prev = s2.charAt(i-k);
+            
+            if(map.containsKey(curr)) {
+                map.put(curr, map.get(curr) - 1);
             }
 
-            if(map.containsKey(s.charAt(i-k))) {
-                map.put(s.charAt(i-k), map.get(s.charAt(i-k)) + 1);
+            if(map.containsKey(prev)) {
+                map.put(prev, map.get(prev) + 1);
             }
 
             if(check(map))
