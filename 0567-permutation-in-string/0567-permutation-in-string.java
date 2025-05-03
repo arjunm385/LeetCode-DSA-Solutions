@@ -24,13 +24,16 @@ class Solution {
         }
 
         for(int i=k; i<s2.length();i++){
+
+            char curr = s2.charAt(i);
+            char prev = s2.charAt(i-k);
             
-            if(map.containsKey(s2.charAt(i))) {
-                map.put(s2.charAt(i), map.get(s2.charAt(i)) - 1);
+            if(map.containsKey(curr)) {
+                map.put(curr, map.get(curr) - 1);
             }
 
-            if(map.containsKey(s2.charAt(i-k))) {
-                map.put(s2.charAt(i-k), map.get(s2.charAt(i-k)) + 1);
+            if(map.containsKey(prev)) {
+                map.put(prev, map.get(prev) + 1);
             }
 
             if(check(map))
