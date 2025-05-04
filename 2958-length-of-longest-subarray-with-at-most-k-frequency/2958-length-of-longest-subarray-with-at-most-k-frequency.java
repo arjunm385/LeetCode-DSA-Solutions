@@ -19,11 +19,9 @@ class Solution {
                 map.put(nums[l], map.get(nums[l]) - 1);
                 l++;
                 }
-                map.put(nums[r], map.get(nums[r]) - 1);
+                r++;
             }
         }
-
         return max;
-        
     }
 }
