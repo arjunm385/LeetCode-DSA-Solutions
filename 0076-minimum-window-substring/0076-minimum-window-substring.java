@@ -26,7 +26,7 @@ class Solution {
 
         while(r<s.length()) {
 
-            while(!arrCheck(org, test)) {
+            while(!arrCheck(org, test) && r<s.length()) {
                 test[s.charAt(r)]++;
                 r++;
             }
