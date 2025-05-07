@@ -1,7 +1,5 @@
 class Solution {
 
-    int[] res = new int[2];
-
     public int[] twoSum(int[] numbers, int target) {
 
         int l=0, r=numbers.length - 1;
@@ -14,6 +12,7 @@ class Solution {
                 r--;
 
             else {
+                int[] res = new int[2];
                 res[0] = l+1;
                 res[1] = r+1;
                 return res;
