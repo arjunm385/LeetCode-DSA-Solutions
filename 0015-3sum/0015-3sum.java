@@ -16,11 +16,23 @@ class Solution {
         
     }
 
-    public void twoSum(int[] numbers, int l, int target, int p, List<List<Integer>> list) {
+    public void twoSum(int[] numbers, int start, int target, int p, List<List<Integer>> list) {
 
-        int r=numbers.length - 1;
+        int end=numbers.length - 1;
+        int l = start;
+        int r = end;
 
         while(l<r) {
+
+            if(l>start && numbers[l] == numbers[l-1]) {
+                l++;
+                continue;
+            }
+
+            if(r<end && numbers[r] == numbers[r+1]) {
+                r--;
+                continue;
+            }
 
             if(numbers[l] + numbers[r] < target)
                 l++;
