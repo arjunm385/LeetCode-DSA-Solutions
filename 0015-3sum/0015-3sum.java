@@ -12,7 +12,7 @@ class Solution {
             twoSum(nums, i+1, -nums[i], i, list);
         }
 
-        return list;
+        return list.stream().distinct().toList();
         
     }
 
