@@ -8,14 +8,17 @@ class Solution {
         int l=0, r=s.length() - 1;
 
         while(l<r) {
-            if(s.charAt(l) != s.charAt(r)) {
-                break;
+            if(s.charAt(l) == s.charAt(r)) {
+                l++;
+                r--;
+                continue;
             }
-            l++;
-            r--;
+            else {
+                return isValid(s.substring(l,r)) || isValid(s.substring(l+1, r+1));
+            }
         }
 
-        return isValid(s.substring(l,r)) || isValid(s.substring(l+1, r+1));
+        return true;
         
     }
 
